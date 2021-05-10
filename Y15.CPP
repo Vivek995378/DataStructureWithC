@@ -1,0 +1,34 @@
+#include<iostream.h>
+#include<conio.h>
+void push(int stack[],int &tos, int sz)
+{
+    if(tos==sz-1)
+    {
+	cout<<"\n overflow:-";
+	getch();
+	return;
+    }
+    tos++;
+    cout<<"\n enter any number:-";
+    cin>>stack[tos];
+
+
+}
+void main()
+{
+    clrscr();
+    int s[50],tos=-1,sz=50,i;
+    char ch;
+    do
+    {
+	push(s,tos,sz);
+	cout<<"\n do you want to continue:-";
+	ch=getche();
+    }while(ch!='n');
+    cout<<"\n";
+    for(i=tos;i>=0;i--)
+    {
+	 cout<<s[i]<<"\t";
+    }
+    getch();
+}

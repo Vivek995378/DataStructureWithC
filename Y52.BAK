@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<conio.h>
+#include<malloc.h>
+#include<iostream.h>
+struct node
+{
+    int info;
+    node *next,*prev;
+};
+void main()
+{
+    clrscr();
+    char ch;
+    node *start,*rear,*ptr;
+    start=rear=NULL;
+    do
+    {
+	ptr=(node*)malloc(sizeof(node));
+	cout<<"\n enter any value:-";
+	cin>>ptr->info;
+	ptr->next=NULL;
+	ptr->prev=NULL;
+	if(start==NULL)
+	{
+	   start=rear=ptr;
+	}
+	else
+	{
+	   rear->next=ptr;
+	   ptr->prev=rear;
+	   rear=ptr;
+	}
+	cout<<"\n Do you want to continue:-";
+	ch=getche();
+    }while(ch!='n');
+    ptr=start;
+    while(ptr->next!=NULL)
+    {
+	cout<<ptr->info<<"\t";
+	ptr=ptr->next;
+    }
+    while(ptr!=NULL)
+    {
+	cout<<ptr->info<<"\t";
+	ptr=ptr->prev;
+    }
+    getch();
+}
+

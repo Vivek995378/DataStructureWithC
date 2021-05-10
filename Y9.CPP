@@ -1,0 +1,54 @@
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+   clrscr();
+   int a[10],b[10],c[20],i,j,pos;
+   cout<<"\n enter 1st array:-";
+   for(i=0;i<2;i++)
+   {
+       cin>>a[i];
+   }
+   cout<<"\n enter 2nd array:-";
+   for(i=0;i<2;i++)
+   {
+       cin>>b[i];
+   }
+   cout<<"\n the array in ascending order is:-";
+   i=0;
+   j=0;
+   pos=0;
+   while(i<2 && j<2)
+   {
+	   if(a[i]<b[j])
+	   {
+		c[pos]=a[i];
+		pos++;
+		i++;
+	   }
+	   else
+	   {
+		c[pos]=b[j];
+		pos++;
+		j++;
+	   }
+   }
+   while(i<2)
+   {
+      c[pos]=a[i];
+      pos++;
+      i++;
+   }
+   while(j<2)
+   {
+      c[pos]=b[j];
+      pos++;
+      j++;
+   }
+   for(i=0;i<pos;i++)
+   {
+      cout<<c[i]<<"\n";
+   }
+   getch();
+}
+

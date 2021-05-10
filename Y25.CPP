@@ -1,0 +1,23 @@
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+   clrscr();
+   int i,n,*ptr,num[10];
+   cout<<"\n enter how many records you want to enter:-";
+   cin>>n;
+   cout<<"\n enter the array:-\n";
+   for(i=0;i<n;i++)
+   {
+       cin>>num[i];
+   }
+   ptr=num;
+   cout<<"\n the array is \n";
+   for(i=0;i<n;i++)
+   {
+      cout<<*ptr<<"\t";
+      ptr++;
+   }
+   getch();
+}
+

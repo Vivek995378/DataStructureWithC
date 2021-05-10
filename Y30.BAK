@@ -1,0 +1,42 @@
+#include<iostream.h>
+#include<conio.h>
+#include<malloc.h>
+struct node
+{
+    int info;
+    node *link;
+};
+void main()
+{
+    clrscr();
+    char ch;
+    node *start,*rear,*ptr;
+    start=rear=NULL;
+    do
+    {
+	ptr=(node*)malloc(sizeof(node));
+	cout<<"\n enter any value:-";
+	cin>>ptr->info;
+	ptr->link=NULL;
+	if(start==NULL)
+	{
+	    start=rear=ptr;
+	}
+	else
+	{
+	    rear->link=ptr;
+	    rear=ptr;
+	}
+	cout<<"\n do you want to continue:- \n";
+	ch=getche();
+	cout<<"\n";
+    }while(ch!='n');
+    cout<<"\n the linked list is \n";
+    ptr=start;
+    while(ptr!=NULL)
+    {
+	cout<<ptr->info<<"\t";
+	ptr=ptr->link;
+    }
+    getch();
+}

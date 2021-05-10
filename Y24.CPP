@@ -1,0 +1,105 @@
+//circular queue
+#include<iostream.h>
+#include<conio.h>
+void insert(int arr[], int &front, int &rear, int sz)
+{
+     if((front==0&&rear==sz-1)||rear==front-1)
+     {
+	 cout<<"overflow";
+	 getch();
+	 return;
+     }
+     else if (front<0)
+     {
+	 front=rear=0;
+     }
+     else if(front>=0&&rear==sz-1)
+     {
+	 rear=0;
+     }
+     else
+     {
+	 rear++;
+     }
+     cout<<"\n enter any number:-";
+     cin>>arr[rear];
+}
+void deletion(int &front, int &rear, int sz)
+{
+    if(front<0)
+    {
+       cout<<"underflow";
+       getch();
+       return;
+    }
+    else if(rear==front)
+    {
+       rear=front=-1;
+    }
+    else if(rear<front && front==sz-1)
+    {
+       front=0;
+    }
+    else
+    {
+       front++;
+    }
+}
+void display(int arr[],int front, int rear,int sz)
+{
+     if(front<=rear)
+     {
+	 for(int i=front;i<=rear;i++)
+	 {
+	    cout<<arr[i]<<"\t";
+	 }
+	 cout<<"\n";
+     }
+     else
+     {
+      for(int i=front;i<=sz-1;i++)
+      {
+	  cout<<arr[i]<<"\t";
+      }
+      for(i=0;i<=rear;i++)
+      {
+	  cout<<arr[i]<<"\t";
+      }
+      cout<<"\n";
+     }
+}
+void main()
+{
+    clrscr();
+    int arr[5],sz=5,i,rear=-1,front=-1,ch;
+    cout<<"\n 1. insert";
+    cout<<"\n 2. deletion";
+    cout<<"\n 3. exit";
+    do
+    {
+       cout<<"\n enter your choice:-";
+       cin>>ch;
+       switch(ch)
+       {
+	  case 1:
+		  insert(arr,front,rear,sz);
+		  cout<<"\n";
+		  display(arr,front,rear,sz);
+		  getch();
+		  break;
+	  case 2:
+		  deletion(front,rear,sz);
+		  cout<<"\n";
+		  display(arr,front,rear,sz);
+		  getch();
+		  break;
+
+	  case 3:
+		  break;
+	  default:
+		  cout<<"\n invalid choice";
+		  break;
+       }
+    }while(ch!=3);
+}
+

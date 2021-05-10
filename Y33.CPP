@@ -1,0 +1,80 @@
+// stack implementation with the help of linked list.
+// insertion at first and deletion at first.
+#include<iostream.h>
+#include<conio.h>
+#include<malloc.h>
+struct node
+{
+     int val;
+     node *link;
+};
+void main()
+{
+     clrscr();
+     node *tos,*ptr;
+     int ch;
+     tos=NULL;
+     cout<<"\n 1. push in dynamic stack";
+     cout<<"\n 2. pop in dynamic stack";
+     cout<<"\n 3. exit \n";
+     do
+     {
+	 cout<<"\n enter your choice:-";
+	 cin>>ch;
+	 switch(ch)
+	 {
+	     case 1:
+		     ptr=(node*)malloc(sizeof(node));
+		     cout<<"\n enter any value:-";
+		     cin>>ptr->val;
+		     ptr->link=NULL;
+		     if(tos==NULL)
+		     {
+			ptr->link=NULL;
+			tos=ptr;
+		     }
+		     else
+		     {
+			ptr->link=tos;
+			tos=ptr;
+		     }
+		     cout<<"\n pushing any value in linked list :-\n";
+		     ptr=tos;
+		     while(ptr!=NULL)
+		     {
+			cout<<ptr->val<<"\t";
+			ptr=ptr->link;
+		     }
+		     getch();
+		     break;
+	     case 2:
+		     if(tos==NULL)
+		     {
+			 cout<<"\n empty";
+			 getch();
+			 break;
+		     }
+		     else
+		     {
+			 ptr=tos;
+			 tos=tos->link;
+			 free(ptr);
+
+		     }
+		     cout<<"\n poping in linked list:- \n";
+		     ptr=tos;
+		     while(ptr!=NULL)
+		     {
+			 cout<<ptr->val<<"\t";
+			 ptr=ptr->link;
+		     }
+		     getch();
+		     break;
+	     case 3:
+		     break;
+	     default:
+		     cout<<"\n invalid choice";
+		     break;
+	 }
+     }while(ch!=3);
+}

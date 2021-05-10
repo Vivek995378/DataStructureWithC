@@ -1,0 +1,56 @@
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+   clrscr();
+   int a[20],b[20],c[20],i,j,k,sz,sz1,sz2;
+   cout<<"\n enter the size of array 1:-";
+   cin>>sz1;
+   for(i=0;i<sz1;i++)
+   {
+      cin>>a[i];
+   }
+   cout<<"\n enter the size of array 2:-";
+   cin>>sz2;
+   for(i=0;i<sz2;i++)
+   {
+      cin>>b[i];
+   }
+   cout<<"\n the final array in ascending order is:-";
+   sz=sz1+sz2;
+   i=0;
+   j=sz2-1;
+   k=0;
+   while(i<sz1 && j>=0)
+   {
+       if(a[i]<b[j])
+       {
+	  c[k]=a[i];
+	  i++;
+	  k++;
+       }
+       else
+       {
+	  c[k]=b[j];
+	  k++;
+	  j--;
+       }
+   }
+   while(i<sz1)
+   {
+      c[k]=a[i];
+      k++;
+      i++;
+   }
+   while(j>=0)
+   {
+      c[k]=b[j];
+      k++;
+      j--;
+   }
+   for(i=0;i<sz;i++)
+   {
+      cout<<c[i]<<"\n";
+   }
+   getch();
+}

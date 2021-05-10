@@ -1,0 +1,21 @@
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+   clrscr();
+   int arr[50],i=-1;
+   char ch;
+   do
+   {   i++;
+       cout<<"\n enter any no. in array:-";
+       cin>>arr[i];
+       cout<<"\n enter your choice :-";
+       ch=getche();
+   }while(ch=='Y'||ch=='y');
+   cout<<"\n the array is:-";
+   for(int j=0;j<i;j++)
+   {
+     cout<<arr[j];
+   }
+   getch();
+}

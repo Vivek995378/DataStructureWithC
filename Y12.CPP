@@ -1,0 +1,27 @@
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+   clrscr();
+   int a[10],i,pos,sz;
+   cout<<"\n enter the size of array:-";
+   cin>>sz;
+   cout<<"\n enter the array:-";
+   for(i=0;i<sz;i++)
+   {
+       cin>>a[i];
+   }
+   cout<<"\n enter the position you want to delete:-";
+   cin>>pos;
+   for(i=pos;i<sz;i++)
+   {
+       a[i]=a[i+1];
+   }
+   sz--;
+   cout<<"\n the new array is:-";
+   for(i=0;i<sz;i++)
+   {
+       cout<<a[i]<<"\n";
+   }
+   getch();
+}

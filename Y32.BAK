@@ -1,0 +1,164 @@
+#include<iostream.h>
+#include<conio.h>
+#include<malloc.h>
+#include<stdio.h>
+struct student
+{
+    int roll,marks;
+    char name[10];
+    student *link;
+};
+void main()
+{
+    clrscr();
+    student *start,*rear,*ptr;
+    int ch;
+    start=rear=NULL;
+    do
+    {
+	   cout<<"\n";
+	   cout<<"\n 1. insertion at last";
+	   cout<<"\n 2. insertion at first";
+	   cout<<"\n 3. deletion at first";
+	   cout<<"\n 4. deletion at last";
+	   cout<<"\n 5. exit \n";
+	   cout<<"\n enter your choice:- \n";
+	   cin>>ch;
+
+	   switch(ch)
+	   {
+		 case 1:
+			   ptr=(student*)malloc(sizeof(student));
+			   cout<<"\n enter name:- ";
+			   gets(ptr->name);
+			   cout<<"\n enter roll no.:- ";
+			   cin>>ptr->roll;
+			   cout<<"\n enter marks:- ";
+			   cin>>ptr->marks;
+			   ptr->link=NULL;
+			   if(start==NULL)
+			   {
+			       start=rear=ptr;
+			   }
+			   else
+			   {
+			       rear->link=ptr;
+			       rear=ptr;
+			   }
+			   cout<<"\n linked list is:- \n";
+			   ptr=start;
+			   while(ptr!=NULL)
+			   {
+			       cout<<"\n name :-"<<ptr->name;
+			       cout<<"\n roll :-"<<ptr->roll;
+			       cout<<"\n marks :-"<<ptr->marks;
+			       ptr=ptr->link;
+			   }
+			   getch();
+			   break;
+		 case 2:
+			   ptr=(student*)malloc(sizeof(student));
+			   cout<<"\n enter name:-";
+			   gets(ptr->name);
+			   cout<<"\n enter roll:-";
+			   cin>>ptr->roll;
+			   cout<<"\n enter marks:-";
+			   cin>>ptr->marks;
+			   ptr->link=NULL;
+			   if(start==NULL)
+			   {
+			       ptr->link=NULL;
+			       start=rear=ptr;
+			   }
+			   else
+			   {
+			       ptr->link=start;
+			       start=ptr;
+			   }
+			   cout<<"\nlinked list at insertion at first:-\n";
+			   ptr=start;
+			   while(ptr!=NULL)
+			   {
+				cout<<"\n name is :-"<<ptr->name;
+				cout<<"\n roll is :-"<<ptr->roll;
+				cout<<"\n marks is :-"<<ptr->marks;
+				ptr=ptr->link;
+			   }
+			   getch();
+			   break;
+		 case 3:
+			   if(start==NULL)
+			   {
+			       cout<<"\n empty";
+			       getch();
+			       break;
+			   }
+			   else if(start==rear)
+			   {
+				free(start);
+				start=rear=NULL;
+			   }
+			   else
+			   {
+				ptr=start;
+				start=start->link;
+				free(ptr);
+			   }
+			   cout<<"\n linked list at deletion at first:-\n";
+			   ptr=start;
+			   while(ptr!=NULL)
+			   {
+			       cout<<"\n name is :-"<<ptr->name;
+			       cout<<"\n roll is :-"<<ptr->roll;
+			       cout<<"\n marks is :-"<<ptr->marks;
+			       ptr=ptr->link;
+			   }
+			   getch();
+			   break;
+		 case 4:
+			   if(start==NULL)
+			   {
+			       cout<<"\n empty";
+			       getch();
+			       break;
+			   }
+			   else if(start==rear)
+			   {
+				free(start);
+				start=rear=NULL;
+			   }
+			   else
+			   {
+				ptr=start;
+				while(ptr->link->link!=NULL)
+				{
+				    ptr=ptr->link;
+				}
+				ptr->link=NULL;
+				free(rear);
+				rear=ptr;
+			   }
+			   cout<<"\n linked list at deletion at last:- \n";
+			   ptr=start;
+			   while(ptr!=NULL)
+			   {
+			       cout<<"\n name is:-"<<ptr->name;
+			       cout<<"\n roll no :-"<<ptr->roll;
+			       cout<<"\n marks is:-"<<ptr->marks;
+			       ptr=ptr->link;
+			   }
+			   getch();
+			   break;
+		 case 5:
+			   break;
+		 default:
+			   cout<<"\n invalid choice";
+			   break;
+	   }
+    }while(ch!=5);
+}
+
+
+
+
+
